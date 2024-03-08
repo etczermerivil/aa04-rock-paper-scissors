@@ -60,7 +60,27 @@ function getCPUMove() {
 
 }
 function processMove(cmd, cpu) {
-  // Your code here
+console.log(`You pick ${cmd}, computer picks ${cpu}.`);
+
+let result = getWinner(cmd, cpu);
+
+if (result === 0) { // tie
+  console.log("You tie.\n");
+  ties++;
+
+
+}
+else if (result === 1) { // win
+  console.log("You win!\n");
+  wins++;
+
+
+} else { // loss
+console.log("You lose...\n");
+losses++;
+
+
+}
 }
 
 /******************************* MAIN FUNCTION *******************************/
@@ -71,6 +91,7 @@ function promptInput(rl) {
     cmd = cmd.toLowerCase();
 
     if (cmd === 'h') {
+      console.log("\nHelp:\n")
       printHelp();
 
     } else if (cmd === 'q') {
